@@ -5,6 +5,8 @@ import java.io.IOException;
 
 public class Loader
 {
+    public static int counter;
+    public static int address;
     public void load(FileReader dataFile)
     {
         try
@@ -19,6 +21,8 @@ public class Loader
     }
     private void readFile(BufferedReader bf)
     {
+        counter = 0;
+        address = 0;
         try
         {
             String jobLine = bf.readLine();
