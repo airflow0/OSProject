@@ -1,42 +1,72 @@
 package KOS;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.IOException;
 
+import java.io.*;
 public class Loader
 {
-    public static int counter;
-    public static int address;
-    public void load(FileReader dataFile)
+    public static void load(FileReader file)
     {
-        try
+        try (BufferedReader read = new BufferedReader(file))
         {
-            BufferedReader dataFileInput = new BufferedReader(dataFile);
-
+            getDataFromFile(read);
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            System.out.println("Buffered Reader Exception; Class: Loader; Method: Load");
         }
     }
-    private void readFile(BufferedReader bf)
+    //TODO: Seperate data from Data file to Driver Memory and Disk
+    private static void getDataFromFile(BufferedReader buffer)
     {
-        counter = 0;
-        address = 0;
+        String data;
         try
         {
-            String jobLine = bf.readLine();
-            while ( jobLine.length() > 0) // While number of lines in text is greater than 0
-            {
-                if(jobLine.contains("JOB"))
-                {
 
+            while((data = buffer.readLine()) != null)
+            {
+                data = buffer.readLine();
+                if(data.contains("JOB"))
+                {
+                    System.out.println(data);
+                    data = buffer.readLine();
+                    while(data.contains("0x"))
+                    {
+                        System.out.println(data);
+                        data = buffer.readLine();
+                    }
+                }
+                else if (data.contains("Data"))
+                {
+                    System.out.println(data);
+                    data = buffer.readLine();
+                    while(data.contains("0x"))
+                    {
+                        System.out.println(data);
+                        data = buffer.readLine();
+                    }
+                }
+                else
+                {
+                    data = buffer.readLine();
                 }
             }
+
         }
-        catch ( Exception ex )
+        catch (NullPointerException ex)
         {
-            ex.printStackTrace();
+            System.out.println("Null Pointer Exception; Class: Loader; Method: getDataFromFile");
+        }
+        catch(IOException ex)
+        {
+            System.out.println("IO Exception; Class: Loader; Method: getDataFromFile");
         }
     }
+    public void seperateJob(String job, int jobDataType)
+    {
+        //Seperates job data type and insert into Driver
+    }
+    public void seperateData()
+    {
+        //Seperates data and inserts into disk
+    }
+
 }

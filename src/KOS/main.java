@@ -1,6 +1,6 @@
 package KOS;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+
 
 public class Main
 {
@@ -8,10 +8,11 @@ public class Main
     {
         try
         {
-            FileReader dataFile = new FileReader("Data.txt");
+            FileReader dataFile = new FileReader("data.txt");
+            Loader.load(dataFile);
 
         }
-        catch (IOException ex)
+        catch (Exception ex)
         {
             ex.printStackTrace();
         }
