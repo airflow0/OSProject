@@ -3,9 +3,14 @@ package KOS;
 import java.io.*;
 public class Loader
 {
-    public static void load(FileReader file)
+    private static FileReader _file;
+    public Loader(FileReader file)
     {
-        try (BufferedReader read = new BufferedReader(file))
+        this._file = file;
+    }
+    public void load()
+    {
+        try (BufferedReader read = new BufferedReader(_file))
         {
             getDataFromFile(read);
         }
