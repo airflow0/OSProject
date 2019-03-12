@@ -10,8 +10,6 @@ public class Main
     public static Loader load;
     public static void main(String[] args)
     {
-
-
         try
         {
             FileReader dataFile = new FileReader("data.txt");
