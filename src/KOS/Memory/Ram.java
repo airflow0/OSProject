@@ -3,11 +3,17 @@ package KOS.Memory;
 public class Ram
 {
     short[] randomMemory;
-    public Ram()
+    public Ram(int size)
     {
-        // TODO: Initalize Ram
+        randomMemory = new short[size];
     }
-    //TODO: Method to write Data
-    //TODO: Method to readData
 
+    public short getRamData(int input)
+    {
+        return randomMemory[input];
+    }
+    public void setRamData(short input, int dataLocation)
+    {
+        randomMemory[dataLocation] = input;
+    }
 }
