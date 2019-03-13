@@ -2,4 +2,30 @@ package KOS.Memory;
 
 public class Memory
 {
+    private static final int diskSize = 2048;
+    private static final int ramSize = 1024;
+
+    public Ram randomMemory;
+    public Disk diskMemory;
+    public Memory()
+    {
+        randomMemory = new Ram(ramSize);
+        diskMemory = new Disk(diskSize);
+    }
+    public short getRamInformation(int input)
+    {
+        return randomMemory.getRamData(input);
+    }
+    public void setRamInformation(short information, int input)
+    {
+        randomMemory.setRamData(information, input);
+    }
+    public String getDiskInformation(int input)
+    {
+        return diskMemory.getDiskData(input);
+    }
+    public void setDiskInformation(String information, int input)
+    {
+        diskMemory.setDiskData(input, information);
+    }
 }
