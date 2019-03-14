@@ -26,8 +26,8 @@ public class LongTerm
     public int tempBufferSize;
     //Memory
     public int sizeOfMemory;
-    private static int availableMemory = 1024;
-    public int ramMemory = 1024;
+    private static int availableMemory = Utility.RAMSIZE;
+    public int ramMemory = Utility.RAMSIZE;
     //LongTerm Scheduler
 
     public static ArrayList<ProcessControlVariables> controller;
@@ -105,7 +105,7 @@ public class LongTerm
             {
                 Main.end = true;
             }
-
+            currentLocation = currentLocation+1;
             if ( Main.process.getProcessCounter() > currentLocation)
             {
                 System.out.println("Job: " + currentLocation);

@@ -1,9 +1,11 @@
 package KOS.Memory;
 
+import KOS.Utility;
+
 public class Memory
 {
-    private static final int diskSize = 2048;
-    private static final int ramSize = 1024;
+    private static final int diskSize = Utility.DISKSIZE;
+    private static final int ramSize =  Utility.RAMSIZE;
 
     public Ram randomMemory;
     public Disk diskMemory;
@@ -19,7 +21,6 @@ public class Memory
     public synchronized void setRamInformation(short information, int location)
     {
         randomMemory.setRamData(information, location);
-        //System.out.println("Inserted Binary Data to Ram; Information: " + information + ", Location: " + location);
     }
     public synchronized String getDiskInformation(int input)
     {

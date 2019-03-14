@@ -8,13 +8,13 @@ public class Disk
     {
         dataCollection = new String[size];
     }
-    public String getDiskData(int input)
-    {
-        return dataCollection[input];
-    }
     public void setDiskData(int location, String input)
     {
         dataCollection[location] = input;
+    }
+    public String getDiskData(int input)
+    {
+        return dataCollection[input];
     }
     public int getDataCollectionLength()
     {

@@ -4,6 +4,8 @@ import java.math.BigInteger;
 
 public class Utility
 {
+    public static int RAMSIZE = 1024;
+    public static int DISKSIZE = 2048;
     public static String changeToBinary(int location)
     {
         String diskData = Main.memory.getDiskInformation(location);
