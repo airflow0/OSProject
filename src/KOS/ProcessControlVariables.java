@@ -4,27 +4,32 @@ package KOS;
 public class ProcessControlVariables
 {
     //Buffers
-    public int[] CBuffer;
-    public int[] OBuffer;
-    public int[] tBuffer;
+    public short[] inBuffer;
+    public short[] OutBuffer;
+    public short[] tempBuffer;
     public int inBufferSize;
     public int outBufferize;
     public int tempBufferSize;
 
+    //Memory Location
+    public int beginMemory;
+    public int endMemory;
+
     //Creating Processes
-    public int procID;
-    public int procAddress;
-    public int procSize;
-    public int procDataSize;
-    public int procPriority;
+    private int procID;
+    private int procAddress;
+    private int procSize;
+    private int procDataSize;
+    private int procPriority;
 
     //Timer
     public long internalTimer = 0;
     public long outerTimer = 0;
     public long cpuBegin = 0;
     public long cpuEnd = 0;
-    public int beginMemory;
-    public int beginEnd;
+
+    //Data size
+    public int memorysize;
 
     ProcessControlVariables(int id, int address, int size, int priority)
     {
@@ -53,29 +58,29 @@ public class ProcessControlVariables
     {
         return procPriority;
     }
-    public int[] getCBuffer()
+    public short[] getCBuffer()
     {
-        return CBuffer;
+        return inBuffer;
     }
-    public int[] getOBuffer()
+    public short[] getOBuffer()
     {
-        return OBuffer;
+        return OutBuffer;
     }
-    public int[] getTBuffer()
+    public short[] getTBuffer()
     {
-        return tBuffer;
+        return tempBuffer;
     }
-    public void setCBuffer(int[] buffer)
+    public void setCBuffer(short[] buffer)
     {
-        CBuffer = buffer;
+        inBuffer = buffer;
     }
-    public void setOBuffer(int[] buffer)
+    public void setOBuffer(short[] buffer)
     {
-        OBuffer = buffer;
+        OutBuffer = buffer;
     }
-    public void setTBuffer(int[] buffer)
+    public void setTBuffer(short[] buffer)
     {
-        tBuffer = buffer;
+        tempBuffer = buffer;
     }
     public int getIBufferSize()
     {
@@ -109,10 +114,21 @@ public class ProcessControlVariables
     {
         return beginMemory;
     }
-    public int getBeginEnd()
+    public int getEndMemory()
     {
-        return beginEnd;
+        return endMemory;
     }
+    public void setBeginMemory(int memory) { beginMemory = memory;}
+    public void setEndMemory(int memory) { endMemory = memory;}
+    public void setMemorySize(int size)
+    {
+        memorysize = size;
+    }
+    public int getMemorysize()
+    {
+        return memorysize;
+    }
+
     public void setInternalTimer(long timer)
     {
         internalTimer = timer;
@@ -120,5 +136,14 @@ public class ProcessControlVariables
     public void setOuterTimer(long timer)
     {
         outerTimer = timer;
+    }
+    public void insertBufferData(int inputData, int tempData, int outputData)
+    {
+        inBufferSize = inputData;
+        tempBufferSize = tempData;
+        outBufferize = outputData;
+        inBuffer = new short[inputData];
+        tempBuffer = new short[tempData];
+        OutBuffer = new short[outputData];
     }
 }

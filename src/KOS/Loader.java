@@ -1,51 +1,53 @@
 package KOS;
 
 import java.io.*;
+import java.util.StringTokenizer;
+import java.util.Scanner;
+
 public class Loader
 {
-    private static FileReader _file;
-    public Loader(FileReader file)
+    private static Scanner scan;
+    public Loader()
     {
-        this._file = file;
-    }
-    public void load()
-    {
-        try (BufferedReader read = new BufferedReader(_file))
+        try
         {
-            getDataFromFile(read);
+            FileReader _file = new FileReader("Data.txt");
+            BufferedReader buffer = new BufferedReader(_file);
+            getDataFromFile(buffer);
         }
-        catch (Exception ex)
+        catch (FileNotFoundException _fileEx)
         {
-            System.out.println("Buffered Reader Exception; Class: Loader; Method: Load");
+            _fileEx.printStackTrace();
         }
     }
-    //TODO: Seperate data from Data file to Driver Memory and Disk
     private static void getDataFromFile(BufferedReader buffer)
     {
         String data;
         try
         {
-
-            while((data = buffer.readLine()) != null)
+            while ((data = buffer.readLine()) != null)
             {
-                data = buffer.readLine();
-                if(data.contains("JOB"))
+                //System.out.println(data);
+                if (data.contains("JOB"))
                 {
-                    System.out.println(data);
-                    data = buffer.readLine();
-                    while(data.contains("0x"))
+
+                    data = data.replace("// JOB ", "");
+                    //System.out.println(data);
+                    insertJob(data,true);
+                    while (data.contains("0x"))
                     {
-                        System.out.println(data);
                         data = buffer.readLine();
                     }
                 }
                 else if (data.contains("Data"))
                 {
+                    data = data.replace( "// Data ", "");
                     System.out.println(data);
+                    insertJob(data,false);
                     data = buffer.readLine();
-                    while(data.contains("0x"))
+                    while (data.contains("0x"))
                     {
-                        System.out.println(data);
+                        //System.out.println(data);
                         data = buffer.readLine();
                     }
                 }
@@ -53,25 +55,48 @@ public class Loader
                 {
                     data = buffer.readLine();
                 }
-            }
 
-        }
-        catch (NullPointerException ex)
-        {
-            System.out.println("Null Pointer Exception; Class: Loader; Method: getDataFromFile");
+            }
+            buffer.close();
         }
         catch(IOException ex)
         {
-            System.out.println("IO Exception; Class: Loader; Method: getDataFromFile");
+
         }
     }
-    public void seperateJob(String job, int jobDataType)
+    private static void insertData()
     {
-        //Seperates job data type and insert into Driver
+
     }
-    public void seperateData()
+    private static void insertJob(String job, boolean isJob)
     {
-        //Seperates data and inserts into disk
+        scan = new Scanner(job);
+        if(isJob)
+        {
+            int jobID = 0, jobSize = 0, jobPriority = 0;
+            while(scan.hasNext())
+            {
+                jobID = Integer.parseInt(scan.next(), 16);
+                jobSize = Integer.parseInt(scan.next(), 16);
+                jobPriority = Integer.parseInt(scan.next(), 16);
+                Main.process.insertJob(jobID, 0, jobSize, jobPriority);
+            }
+            System.out.println(jobID + " " + jobSize + " " + jobPriority);
+        }
+        else
+        {
+            int inputBuffer = 0, outputBuffer = 0, tempBuffer = 0;
+            while(scan.hasNext())
+            {
+                inputBuffer = Integer.parseInt(scan.next(), 16);
+                outputBuffer = Integer.parseInt(scan.next(), 16);
+                tempBuffer = Integer.parseInt(scan.next(), 16);
+            }
+            System.out.println(inputBuffer + " " + outputBuffer + " " + tempBuffer);
+            Main.process.setMemorySize(tempBuffer + inputBuffer + outputBuffer);
+            Main.process.insertMetaData(inputBuffer, tempBuffer,outputBuffer);
+        }
+
     }
 
 }

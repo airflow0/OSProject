@@ -1,6 +1,7 @@
 package KOS;
 import java.io.*;
 import KOS.Memory.*;
+import Handler.*;
 
 
 public class Main
@@ -10,16 +11,9 @@ public class Main
     public static Loader load;
     public static void main(String[] args)
     {
-        try
-        {
-            FileReader dataFile = new FileReader("data.txt");
-            load = new Loader(dataFile);
-            load.load();
-
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
+        process = new ProcessControl();
+        memory = new Memory();
+        Loader load = new Loader();
+        LongTerm LongScheduler = new LongTerm();
     }
 }
