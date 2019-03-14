@@ -14,21 +14,25 @@ public class CPU
     public int[] registry;
     public ProcessControl pcb;
 
-    public CPU()
-    {
-        initalize();
+    CPU(){}
 
-    }
-    public void startCPU( ProcessControl pcb)
+    private void fetch()
     {
 
+    }
 
-    }
-    public void initalize()
+    private void decode()
     {
-        programCounter = 0;
-        count = 0;
-        registry = new int[registrySize];
-        registry[1] = 0;
+        //done after fetch
     }
-}
+
+    private void execute()
+    {
+        //Increments PC (programCounter) value on success, produces logicalAddress (done after decode)
+    }
+
+    public int effectiveAddress(int logicalAddress)
+    {
+        //Takes in a logical address, returns its physical address
+        int offset = logicalAddress % pageSize;
+    }

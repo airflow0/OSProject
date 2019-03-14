@@ -93,7 +93,8 @@ public class Loader
                 tempBuffer = Integer.parseInt(scan.next(), 16);
             }
             System.out.println(inputBuffer + " " + outputBuffer + " " + tempBuffer);
-            Main.process.setMemorySize(tempBuffer + inputBuffer + outputBuffer);
+            int memorySize = tempBuffer + inputBuffer + outputBuffer;
+            Main.process.setMemorySize(memorySize);
             Main.process.insertMetaData(inputBuffer, tempBuffer,outputBuffer);
         }
 
