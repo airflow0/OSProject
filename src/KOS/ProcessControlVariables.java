@@ -28,6 +28,9 @@ public class ProcessControlVariables
     public long cpuBegin = 0;
     public long cpuEnd = 0;
 
+    //PCBSTATUS
+    public enum STATE { ACCESSIBLE, END}
+    public STATE status;
     //Data size
     public int memorysize;
 
@@ -37,6 +40,14 @@ public class ProcessControlVariables
         procAddress = address;
         procSize = size;
         procPriority = priority;
+    }
+    public STATE getStatus()
+    {
+        return status;
+    }
+    public void setStatus(STATE s)
+    {
+        status = s;
     }
     public int getProcId()
     {

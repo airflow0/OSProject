@@ -43,6 +43,7 @@ public class Loader
                 }
                 else if (data.contains("0x"))
                 {
+                    System.out.println(data);
                     insertData(data, location);
                     location = location + 1;
                 }
@@ -57,6 +58,7 @@ public class Loader
     public static void insertData(String data, int location)
     {
         Main.memory.setDiskInformation(data, location);
+        addressLocation++;
     }
     public static void insertJob(String job, boolean isJob)
     {
@@ -69,7 +71,7 @@ public class Loader
                 jobID = Integer.parseInt(scan.next(), 16);
                 jobSize = Integer.parseInt(scan.next(), 16);
                 jobPriority = Integer.parseInt(scan.next(), 16);
-                Main.process.insertJob(jobID, 0, jobSize, jobPriority);
+                Main.process.insertJob(jobID, addressLocation, jobSize, jobPriority);
             }
             scan.close();
             //System.out.println("Job: " + jobID + " " + jobSize + " " + jobPriority);

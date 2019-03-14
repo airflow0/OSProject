@@ -1,4 +1,5 @@
 package KOS.Memory;
+import KOS.Utility;
 
 public class Memory
 {
@@ -28,7 +29,7 @@ public class Memory
     public void setDiskInformation(String information, int input)
     {
         diskMemory.setDiskData(input, information);
-        System.out.println("Inserted Data: " + information + "; Location: " + input);
+        //System.out.println("Inserted Data: " + information + "; Location: " + input);
     }
     public int getDiskLength()
     {

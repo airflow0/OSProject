@@ -22,7 +22,7 @@ public class ProcessControl
     public void insertJob(int id, int address, int size, int priority)
     {
         block = new ProcessControlVariables(id, address, size, priority);
-        System.out.println("Added job to PCB [ID: " + id + ", address: " + address + ", size: " + size + ",priority: " + priority );
+        //System.out.println("Added job to PCB [ID: " + id + ", address: " + address + ", size: " + size + ",priority: " + priority );
     }
     public ProcessControlVariables findJob(int input)
     {
@@ -30,11 +30,11 @@ public class ProcessControl
     }
     public void insertMetaData(int inputData, int tempData, int outputData)
     {
-        System.out.println("Added metaData to PCB [inputData: " + inputData + ", tempData: " + tempData + ", outputData: " + outputData );
+        //System.out.println("Added metaData to PCB [inputData: " + inputData + ", tempData: " + tempData + ", outputData: " + outputData );
         block.insertBufferData(inputData, tempData, outputData);
         pcbQueue.add(block);
         processCounter++;
-        System.out.println("Meta Data Counter: " + processCounter);
+        //System.out.println("Meta Data Counter: " + processCounter);
     }
     public void setMemorySize(int size)
     {
