@@ -6,9 +6,13 @@ import java.util.Scanner;
 
 public class Loader
 {
-    private static Scanner scan;
+    public static int addressLocation;
+    public static Scanner scan;
+    public static int location;
     public Loader()
     {
+        addressLocation = 0;
+        location = 0;
         try
         {
             FileReader _file = new FileReader("Data.txt");
@@ -36,18 +40,21 @@ public class Loader
                     insertJob(data,true);
                     while (data.contains("0x"))
                     {
+                        location++;
+                        insertData(data, location);
                         data = buffer.readLine();
                     }
                 }
                 else if (data.contains("Data"))
                 {
                     data = data.replace( "// Data ", "");
-                    System.out.println(data);
+                    //System.out.println(data);
                     insertJob(data,false);
                     data = buffer.readLine();
                     while (data.contains("0x"))
                     {
-                        //System.out.println(data);
+                        location++;
+                        insertData(data, location);
                         data = buffer.readLine();
                     }
                 }
@@ -64,11 +71,11 @@ public class Loader
 
         }
     }
-    private static void insertData()
+    public static void insertData(String data, int location)
     {
-
+        Main.memory.setDiskInformation(data, location);
     }
-    private static void insertJob(String job, boolean isJob)
+    public static void insertJob(String job, boolean isJob)
     {
         scan = new Scanner(job);
         if(isJob)
@@ -81,7 +88,8 @@ public class Loader
                 jobPriority = Integer.parseInt(scan.next(), 16);
                 Main.process.insertJob(jobID, 0, jobSize, jobPriority);
             }
-            System.out.println(jobID + " " + jobSize + " " + jobPriority);
+            scan.close();
+            System.out.println("Job: " + jobID + " " + jobSize + " " + jobPriority);
         }
         else
         {
@@ -92,12 +100,14 @@ public class Loader
                 outputBuffer = Integer.parseInt(scan.next(), 16);
                 tempBuffer = Integer.parseInt(scan.next(), 16);
             }
-            System.out.println(inputBuffer + " " + outputBuffer + " " + tempBuffer);
+            scan.close();
+            System.out.println("Meta Data: " + inputBuffer + " " + outputBuffer + " " + tempBuffer);
             int memorySize = tempBuffer + inputBuffer + outputBuffer;
             Main.process.setMemorySize(memorySize);
             Main.process.insertMetaData(inputBuffer, tempBuffer,outputBuffer);
         }
 
     }
+
 
 }

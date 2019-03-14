@@ -27,5 +27,6 @@ public class Memory
     public void setDiskInformation(String information, int input)
     {
         diskMemory.setDiskData(input, information);
+        System.out.println("Inserted Data: " + information + "; Location: " + input);
     }
 }

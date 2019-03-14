@@ -30,7 +30,8 @@ public class LongTerm
     public LongTerm()
     {
         setup();
-        start();
+
+       //start();
 
     }
     public void start()
@@ -50,21 +51,29 @@ public class LongTerm
     }
     public void setup()
     {
-        //Setup Buffers
-        inputBufferSize = process.getIBufferSize();
-        tempBufferSize = process.getTBufferSize();
-        outputBufferSize = process.getOBufferSize();
 
-        //Setup Processes
-        processLocation = 0;
         process = Main.process.getJob(processLocation);
+        processLocation = 0;
         sizeOfProcess = process.getProcSize();
         sizeOfMemory = process.getMemorysize();
         procBegin = process.getProcAddress();
 
+        //Setup Buffers
+        tempBufferSize = process.getTBufferSize();
+        outputBufferSize = process.getOBufferSize();
+        inputBufferSize = process.getIBufferSize();
+
+        System.out.println("TempBufferSize: " + tempBufferSize + ", inputBufferSize " + inputBufferSize + ", outputBufferSize " + outputBufferSize);
+
+
         //memory
         diskMemory = 1024;
         ramMemory = 1024;
+
+
+
+        //Setup Processes
+
 
     }
     public boolean checkMemory()

@@ -14,7 +14,10 @@ public class CPU
     public int[] registry;
     public ProcessControl pcb;
 
-    CPU(){}
+    CPU()
+    {
+
+    }
 
     private void fetch()
     {
@@ -31,8 +34,9 @@ public class CPU
         //Increments PC (programCounter) value on success, produces logicalAddress (done after decode)
     }
 
-    public int effectiveAddress(int logicalAddress)
+    /*public int effectiveAddress(int logicalAddress)
     {
         //Takes in a logical address, returns its physical address
-        int offset = logicalAddress % pageSize;
-    }
+        //int offset = logicalAddress % pageSize;
+    }*/
+}

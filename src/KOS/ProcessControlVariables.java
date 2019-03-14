@@ -145,5 +145,6 @@ public class ProcessControlVariables
         inBuffer = new short[inputData];
         tempBuffer = new short[tempData];
         OutBuffer = new short[outputData];
+        System.out.println("Inserted meta data. inBuffer: " + inputData + " tempBuffer " + tempData + " outputData "+ outputData);
     }
 }
