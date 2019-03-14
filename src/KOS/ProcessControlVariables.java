@@ -36,10 +36,10 @@ public class ProcessControlVariables
 
     ProcessControlVariables(int id, int address, int size, int priority)
     {
-        procID = id;
-        procAddress = address;
-        procSize = size;
-        procPriority = priority;
+        this.procID = id;
+        this.procAddress = address;
+        this.procSize = size;
+        this.procPriority = priority;
     }
     public STATE getStatus()
     {
@@ -47,115 +47,115 @@ public class ProcessControlVariables
     }
     public void setStatus(STATE s)
     {
-        status = s;
+        this.status = s;
     }
     public int getProcId()
     {
-        return procID;
+        return this.procID;
     }
     public int getProcAddress()
     {
-        return procAddress;
+        return this.procAddress;
     }
     public int getProcSize()
     {
-        return procSize;
+        return this.procSize;
     }
     public int getProcData()
     {
-        return procDataSize;
+        return this.procDataSize;
     }
     public int getProcPriority()
     {
-        return procPriority;
+        return this.procPriority;
     }
     public short[] getCBuffer()
     {
-        return inBuffer;
+        return this.inBuffer;
     }
     public short[] getOBuffer()
     {
-        return OutBuffer;
+        return this.OutBuffer;
     }
     public short[] getTBuffer()
     {
-        return tempBuffer;
+        return this.tempBuffer;
     }
     public void setCBuffer(short[] buffer)
     {
-        inBuffer = buffer;
+        this.inBuffer = buffer;
     }
     public void setOBuffer(short[] buffer)
     {
-        OutBuffer = buffer;
+        this.OutBuffer = buffer;
     }
     public void setTBuffer(short[] buffer)
     {
-        tempBuffer = buffer;
+        this.tempBuffer = buffer;
     }
     public int getIBufferSize()
     {
-        return inBufferSize;
+        return this.inBufferSize;
     }
     public int getOBufferSize()
     {
-        return outBufferize;
+        return this.outBufferize;
     }
     public int getTBufferSize()
     {
-        return tempBufferSize;
+        return this.tempBufferSize;
     }
     public long getInternalTimer()
     {
-        return internalTimer;
+        return this.internalTimer;
     }
     public long getOuterTimer()
     {
-        return outerTimer;
+        return this.outerTimer;
     }
     public long getCpuBegin()
     {
-        return cpuBegin;
+        return this.cpuBegin;
     }
     public long getCpuEnd()
     {
-        return cpuEnd;
+        return this.cpuEnd;
     }
     public int getBeginMemory()
     {
-        return beginMemory;
+        return this.beginMemory;
     }
     public int getEndMemory()
     {
-        return endMemory;
+        return this.endMemory;
     }
-    public void setBeginMemory(int memory) { beginMemory = memory;}
-    public void setEndMemory(int memory) { endMemory = memory;}
+    public void setBeginMemory(int memory) { this.beginMemory = memory;}
+    public void setEndMemory(int memory) { this.endMemory = memory;}
     public void setMemorySize(int size)
     {
-        memorysize = size;
+        this.memorysize = size;
     }
     public int getMemorysize()
     {
-        return memorysize;
+        return this.memorysize;
     }
 
     public void setInternalTimer(long timer)
     {
-        internalTimer = timer;
+        this.internalTimer = timer;
     }
     public void setOuterTimer(long timer)
     {
-        outerTimer = timer;
+        this.outerTimer = timer;
     }
     public void insertBufferData(int inputData, int tempData, int outputData)
     {
-        inBufferSize = inputData;
-        tempBufferSize = tempData;
-        outBufferize = outputData;
-        inBuffer = new short[inputData];
-        tempBuffer = new short[tempData];
-        OutBuffer = new short[outputData];
+        this.inBufferSize = inputData;
+        this.tempBufferSize = tempData;
+        this.outBufferize = outputData;
+        this.inBuffer = new short[inputData];
+        this.tempBuffer = new short[tempData];
+        this.OutBuffer = new short[outputData];
         System.out.println("Inserted meta data. inBuffer: " + inputData + " tempBuffer " + tempData + " outputData "+ outputData);
     }
 }

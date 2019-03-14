@@ -5,6 +5,7 @@ import KOS.Utility;
 import KOS.ProcessControlVariables;
 import com.sun.javafx.image.BytePixelSetter;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class LongTerm
@@ -16,7 +17,7 @@ public class LongTerm
     public int procEnd;
     public int sizeOfProcess;
 
-    public int processLocation;
+    public int processLocation = 0;
     public int currentLocation;
     public ProcessControlVariables process;
     //Buffers
@@ -25,51 +26,89 @@ public class LongTerm
     public int tempBufferSize;
     //Memory
     public int sizeOfMemory;
-    public int memoryLeft;
-    public int ramMemory;
+    private static int availableMemory = 1024;
+    public int ramMemory = 1024;
     //LongTerm Scheduler
 
-    public int thresh;
     public static ArrayList<ProcessControlVariables> controller;
 
     public LongTerm()
     {
-        setup();
+        currentLocation = 0;
+        controller = new ArrayList<ProcessControlVariables>();
         start();
 
     }
     public void start()
     {
-        if(loadedAllProcess())
+        /**if(loadedAllProcess())
         {
-            Main.status = true;
+            Main.end = true;
+            return;
         }
         else
         {
-            memoryLeft = 1024;
             processLocation = 0;
-        }
+            memoryLeft = 1024;
+        }**/
+        process = Main.process.getJob(currentLocation);
+        sizeOfProcess = process.getProcSize();
+        sizeOfMemory = process.getMemorysize();
+        procBegin = process.getProcAddress();
+        tempBufferSize = process.getTBufferSize();
+        outputBufferSize = process.getOBufferSize();
+        inputBufferSize = process.getIBufferSize();
 
         while(checkMemory())
         {
             process.setBeginMemory(processLocation);
+            int thresh  = procBegin + sizeOfProcess;
+            int procCounter = procBegin;
+            while(procCounter < thresh)
+            {
+                int j = 0;
+                String converted = Utility.changeToBinary(procCounter);
+                for(int i = 0; i < 3; i++)
+                {
 
-            insertRamData();
-            short[] temp = createProcesses();
+                    Main.memory.setRamInformation(Short.valueOf(converted.substring(j,j+8),2),processLocation++);
+                    j = j + 8;
+                }
+                procCounter++;
+                availableMemory = availableMemory - 4;
+                System.out.println("Memleft: " + availableMemory);
+            }
+
+            System.out.println("Size of Process: " + sizeOfMemory);
+            short[] dataStorage = new short[sizeOfMemory*4];
+            int temp = 0;
+            String binary;
+            while(temp < process.getMemorysize()*4)
+            {
+                int j = 32;
+                binary = Utility.changeToBinary(thresh);
+
+                for(int i = 0;i < 4; i++)
+                {
+                    dataStorage[temp] = Short.valueOf(binary.substring(j-8,j), 2);
+                    temp = temp + 1;
+                    j = j - 8;
+                }
+                thresh = thresh + 1;
+
+            }
             process.setEndMemory(processLocation);
+            process.setCBuffer(dataStorage);
             process.setStatus(ProcessControlVariables.STATE.ACCESSIBLE);
-
             controller.add(process);
-
-            System.out.println("Process Counter: " + Main.process.getProcessCounter());
             if(Main.process.getProcessCounter() < currentLocation)
             {
-                Main.status = true;
+                Main.end = true;
             }
-            currentLocation = currentLocation + 1;
+
             if ( Main.process.getProcessCounter() > currentLocation)
             {
-                System.out.println("Process: " + currentLocation);
+                System.out.println("Job: " + currentLocation);
                 process = Main.process.getJob(currentLocation);
                 procBegin = process.getProcAddress();
                 sizeOfProcess = process.getProcSize();
@@ -78,57 +117,13 @@ public class LongTerm
             }
             else
             {
-                Main.status = true;
+                Main.end = true;
             }
         }
-
-        System.out.println(memoryLeft);
+        return;
     }
 
-    public void setup()
-    {
 
-        //Setup Processes
-        process = Main.process.getJob(currentLocation);
-        processLocation = 0;
-        sizeOfProcess = process.getProcSize();
-        sizeOfMemory = process.getMemorysize();
-        procBegin = process.getProcAddress();
-
-        //Setup Buffers
-        tempBufferSize = process.getTBufferSize();
-        outputBufferSize = process.getOBufferSize();
-        inputBufferSize = process.getIBufferSize();
-
-        //memory
-        memoryLeft = 1024;
-        ramMemory = 1024;
-
-        controller = new ArrayList<ProcessControlVariables>();
-        thresh  = procBegin + sizeOfProcess;
-    }
-    public short[] createProcesses()
-    {
-
-
-        short[] dataStorage = new short[sizeOfMemory*4];
-        System.out.println(sizeOfMemory*4);
-        System.out.println(process.getMemorysize()*4);
-        for(int i = 0; i < process.getMemorysize()*4; i=i+4)
-        {
-            int split = 32;
-            String binary = Utility.changeToBinary(i);
-            for(int j = 0; j < 4; j++)
-            {
-                dataStorage[i] = Short.valueOf(binary.substring(split-8, split),2);
-                System.out.println("Added to Disk: " + dataStorage[i] + ", Thresh: " + thresh);
-                split = split - 8;
-
-            }
-            thresh++;
-        }
-        return dataStorage;
-    }
     public Boolean loadedAllProcess()
     {
         for(int i = 0; i < Main.process.getProcessCounter(); i++)
@@ -141,33 +136,10 @@ public class LongTerm
         }
         return true;
     }
-    public void insertRamData()
-    {
 
-        int procCounter = 0;
-        while (procCounter < thresh)
-        {
-            String binary = Utility.changeToBinary(procCounter);
-            //System.out.println(binary);
-            int j = 0;
-            for (int i = 0; i < 4; i++)
-            {
-
-                short splitBinaryData = Short.valueOf(binary.substring(j, j + 8), 2);
-                j = j + 8;
-
-                Main.memory.setRamInformation(splitBinaryData, processLocation);
-                System.out.println("Added RAM: " + splitBinaryData + " Location: " + processLocation);
-                processLocation = processLocation + 1;
-            }
-            memoryLeft = memoryLeft - 4;
-            procCounter++;
-        }
-    }
     public boolean checkMemory()
     {
-        int memory = sizeOfMemory * 4;
-        if(memoryLeft >= memory && getProcessControlCounter() > currentLocation)
+        if(availableMemory >= (sizeOfProcess*4) && getProcessControlCounter() > currentLocation)
         {
             return true;
         }

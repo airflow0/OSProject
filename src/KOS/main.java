@@ -21,10 +21,12 @@ public class Main
         process = new ProcessControl();
         memory = new Memory();
         load = new Loader();
+
         while( end == false)
         {
             LongTerm LongScheduler = new LongTerm();
         }
+
 
     }
 }

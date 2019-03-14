@@ -1,5 +1,4 @@
 package KOS.Memory;
-import KOS.Utility;
 
 public class Memory
 {
@@ -13,23 +12,23 @@ public class Memory
         randomMemory = new Ram(ramSize);
         diskMemory = new Disk(diskSize);
     }
-    public short getRamInformation(int input)
+    public synchronized short getRamInformation(int input)
     {
         return randomMemory.getRamData(input);
     }
-    public void setRamInformation(short information, int location)
+    public synchronized void setRamInformation(short information, int location)
     {
         randomMemory.setRamData(information, location);
         //System.out.println("Inserted Binary Data to Ram; Information: " + information + ", Location: " + location);
     }
-    public String getDiskInformation(int input)
+    public synchronized String getDiskInformation(int input)
     {
         return diskMemory.getDiskData(input);
     }
-    public void setDiskInformation(String information, int input)
+    public synchronized void setDiskInformation(String information, int input)
     {
         diskMemory.setDiskData(input, information);
-        //System.out.println("Inserted Data: " + information + "; Location: " + input);
+        System.out.println("Inserted Data: " + information + "; Location: " + input);
     }
     public int getDiskLength()
     {
