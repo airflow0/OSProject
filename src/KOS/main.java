@@ -14,6 +14,10 @@ public class Main
         process = new ProcessControl();
         memory = new Memory();
         Loader load = new Loader();
-        LongTerm LongScheduler = new LongTerm();
+        //LongTerm LongScheduler = new LongTerm();
+        for(int i = 0; i < memory.getDiskLength(); i++)
+        {
+            //System.out.println(memory.getDiskInformation(i));
+        }
     }
 }

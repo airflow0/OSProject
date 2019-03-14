@@ -27,43 +27,31 @@ public class Loader
     private static void getDataFromFile(BufferedReader buffer)
     {
         String data;
+        location = 0;
         try
         {
             while ((data = buffer.readLine()) != null)
             {
-                //System.out.println(data);
-                if (data.contains("JOB"))
+                if(data.contains("JOB"))
                 {
-
                     data = data.replace("// JOB ", "");
-                    //System.out.println(data);
-                    insertJob(data,true);
-                    while (data.contains("0x"))
-                    {
-                        location++;
-
-                        Main.memory.setDiskInformation(data, location);
-                        data = buffer.readLine();
-                    }
+                    System.out.println(data);
+                    insertJob(data, true);
                 }
-                else if (data.contains("Data"))
+                else if(data.contains("Data"))
                 {
-                    data = data.replace( "// Data ", "");
-                    //System.out.println(data);
-                    insertJob(data,false);
-                    data = buffer.readLine();
-                    while (data.contains("0x"))
-                    {
-                        location++;
-                        Main.memory.setDiskInformation(data, location);
-                        data = buffer.readLine();
-                    }
+                    data = data.replace("// Data ", "");
+                    insertJob(data, false);
+                }
+                else if (data.contains("0x"))
+                {
+                    insertData(data, location);
+                    location = location + 1;
                 }
                 else
                 {
-                    data = buffer.readLine();
-                }
 
+                }
             }
             buffer.close();
         }
@@ -71,6 +59,10 @@ public class Loader
         {
 
         }
+    }
+    public static void insertData(String data, int location)
+    {
+        Main.memory.setDiskInformation(data, location);
     }
     public static void insertJob(String job, boolean isJob)
     {

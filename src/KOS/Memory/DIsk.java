@@ -16,4 +16,8 @@ public class Disk
     {
         dataCollection[location] = input;
     }
+    public int getDataCollectionLength()
+    {
+        return dataCollection.length;
+    }
 }

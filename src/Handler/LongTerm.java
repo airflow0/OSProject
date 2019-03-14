@@ -1,6 +1,7 @@
 package Handler;
 
 import KOS.Main;
+import KOS.OSUtil;
 import KOS.ProcessControlVariables;
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class LongTerm
     {
         setup();
 
-       //start();
+       start();
 
     }
     public void start()
@@ -44,7 +45,14 @@ public class LongTerm
 
             for(procCounter = procBegin; thresh > procCounter; procCounter++)
             {
+                String binary = OSUtil.changeToBinary(procBegin);
+                for(int i = 0; i <= 32; i++)
+                {
+                    short getBits = Short.valueOf(binary.substring(i, i+8),2);
+                    System.out.println("Binary: " + getBits);
 
+                }
+                diskMemory = diskMemory - 4;
             }
 
         }

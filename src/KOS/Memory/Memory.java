@@ -29,4 +29,8 @@ public class Memory
         diskMemory.setDiskData(input, information);
         System.out.println("Inserted Data: " + information + "; Location: " + input);
     }
+    public int getDiskLength()
+    {
+        return diskMemory.getDataCollectionLength();
+    }
 }
