@@ -16,9 +16,10 @@ public class Memory
     {
         return randomMemory.getRamData(input);
     }
-    public void setRamInformation(short information, int input)
+    public void setRamInformation(short information, int location)
     {
-        randomMemory.setRamData(information, input);
+        randomMemory.setRamData(information, location);
+        //System.out.println("Inserted Binary Data to Ram; Information: " + information + ", Location: " + location);
     }
     public String getDiskInformation(int input)
     {

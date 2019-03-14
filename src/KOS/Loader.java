@@ -35,7 +35,6 @@ public class Loader
                 if(data.contains("JOB"))
                 {
                     data = data.replace("// JOB ", "");
-                    System.out.println(data);
                     insertJob(data, true);
                 }
                 else if(data.contains("Data"))
@@ -47,10 +46,6 @@ public class Loader
                 {
                     insertData(data, location);
                     location = location + 1;
-                }
-                else
-                {
-
                 }
             }
             buffer.close();
@@ -78,7 +73,7 @@ public class Loader
                 Main.process.insertJob(jobID, 0, jobSize, jobPriority);
             }
             scan.close();
-            System.out.println("Job: " + jobID + " " + jobSize + " " + jobPriority);
+            //System.out.println("Job: " + jobID + " " + jobSize + " " + jobPriority);
         }
         else
         {
@@ -90,7 +85,7 @@ public class Loader
                 tempBuffer = Integer.parseInt(scan.next(), 16);
             }
             scan.close();
-            System.out.println("Meta Data: " + inputBuffer + " " + outputBuffer + " " + tempBuffer);
+            //System.out.println("Meta Data: " + inputBuffer + " " + outputBuffer + " " + tempBuffer);
             int memorySize = tempBuffer + inputBuffer + outputBuffer;
             Main.process.setMemorySize(memorySize);
             Main.process.insertMetaData(inputBuffer, tempBuffer,outputBuffer);

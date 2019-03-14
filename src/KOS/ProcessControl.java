@@ -30,7 +30,7 @@ public class ProcessControl
     }
     public void insertMetaData(int inputData, int tempData, int outputData)
     {
-        //System.out.println("Added metaData to PCB [inputData: " + inputData + ", tempData: " + tempData + ", outputData: " + outputData );
+        System.out.println("Added metaData to PCB [inputData: " + inputData + ", tempData: " + tempData + ", outputData: " + outputData );
         block.insertBufferData(inputData, tempData, outputData);
         pcbQueue.add(block);
         processCounter++;
