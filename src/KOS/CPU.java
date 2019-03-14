@@ -9,5 +9,28 @@ public class CPU
 
     public long stateAddress;
 
-    private short op, s1Registery, s2Registry, registry1, registry2, dataRegistry,
+    private short op, s1Registery, s2Registry, registry1, registry2, dataRegistry;
+
+    CPU(){}
+
+    private void fetch()
+    {
+
+    }
+
+    private void decode()
+    {
+        //done after fetch
+    }
+
+    private void execute()
+    {
+          //Increments PC (programCounter) value on success, produces logicalAddress (done after decode)
+    }
+
+    public int effectiveAddress(int logicalAddress)
+    {
+          //Takes in a logical address, returns its physical address
+          int offset = logicalAddress % pageSize;
+    }
 }
