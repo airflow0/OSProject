@@ -41,7 +41,8 @@ public class Loader
                     while (data.contains("0x"))
                     {
                         location++;
-                        insertData(data, location);
+
+                        Main.memory.setDiskInformation(data, location);
                         data = buffer.readLine();
                     }
                 }
@@ -54,7 +55,7 @@ public class Loader
                     while (data.contains("0x"))
                     {
                         location++;
-                        insertData(data, location);
+                        Main.memory.setDiskInformation(data, location);
                         data = buffer.readLine();
                     }
                 }
@@ -70,10 +71,6 @@ public class Loader
         {
 
         }
-    }
-    public static void insertData(String data, int location)
-    {
-        Main.memory.setDiskInformation(data, location);
     }
     public static void insertJob(String job, boolean isJob)
     {
