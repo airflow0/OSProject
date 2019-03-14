@@ -1,7 +1,11 @@
 package KOS;
+
 import java.io.*;
+
+import KOS.Loader;
 import KOS.Memory.*;
 import Handler.*;
+import KOS.ProcessControl;
 
 
 public class Main

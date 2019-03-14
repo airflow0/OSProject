@@ -1,6 +1,5 @@
 package KOS;
 
-import KOS.Main;
 import java.math.BigInteger;
 
 public class Utility
