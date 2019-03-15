@@ -156,6 +156,6 @@ public class ProcessControlVariables
         this.inBuffer = new short[inputData];
         this.tempBuffer = new short[tempData];
         this.OutBuffer = new short[outputData];
-        System.out.println("Inserted meta data. inBuffer: " + inputData + " tempBuffer " + tempData + " outputData "+ outputData);
+        ///Utility.write("Meta data. [Input Buffer: " + inputData + "], Temporary Buffer: [" + tempData + "], [Output Buffer: "+ outputData + "]");
     }
 }

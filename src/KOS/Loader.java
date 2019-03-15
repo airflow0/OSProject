@@ -29,26 +29,38 @@ public class Loader
         location = 0;
         try
         {
+            //Utility.write("[LOADER LOADING]");
+            //Utility.write("DATA");
             while ((data = buffer.readLine()) != null)
             {
+
                 if(data.contains("JOB"))
                 {
+                    //Utility.write(data);
                     data = data.replace("// JOB ", "");
+                    //Utility.write("[PROCESSED JOB]");
+                    //Utility.write(data);
                     insertJob(data, true);
                 }
                 else if(data.contains("Data"))
                 {
+                    //Utility.write(data);
                     data = data.replace("// Data ", "");
+                    //Utility.write("[PROCESSED DATA]");
+                    //Utility.write(data);
                     insertJob(data, false);
                 }
                 else if (data.contains("0x"))
                 {
-                    System.out.println(data);
+                    //Utility.write(data);
                     insertData(data, location);
+                    //Utility.write("[PROCESSED HEX]");
+                    //Utility.write(data);
                     location = location + 1;
                 }
             }
             buffer.close();
+           // Utility.write("[Loader Closed]");
         }
         catch(IOException ex)
         {

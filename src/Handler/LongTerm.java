@@ -5,6 +5,7 @@ import KOS.Utility;
 import KOS.ProcessControlVariables;
 import com.sun.javafx.image.BytePixelSetter;
 
+import java.io.FileWriter;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -28,29 +29,37 @@ public class LongTerm
     public int sizeOfMemory;
     private static int availableMemory = Utility.RAMSIZE;
     public int ramMemory = Utility.RAMSIZE;
-    //LongTerm Scheduler
 
-    public static ArrayList<ProcessControlVariables> controller;
+    FileWriter writer;
+    //LongTerm Scheduler
+    public ArrayList<ProcessControlVariables> controller;
 
     public LongTerm()
     {
         currentLocation = 0;
         controller = new ArrayList<ProcessControlVariables>();
+        try
+        {
+            writer = new FileWriter("RAM DUMP", true);
+        }
+        catch(Exception ex)
+        {
+
+        }
         start();
 
     }
     public void start()
     {
-        /**if(loadedAllProcess())
+        if(Main.process.getProcessCounter() == controller.size())
         {
             Main.end = true;
-            return;
         }
         else
         {
+            availableMemory = Utility.RAMSIZE;
             processLocation = 0;
-            memoryLeft = 1024;
-        }**/
+        }
         process = Main.process.getJob(currentLocation);
         sizeOfProcess = process.getProcSize();
         sizeOfMemory = process.getMemorysize();
@@ -73,10 +82,11 @@ public class LongTerm
 
                     Main.memory.setRamInformation(Short.valueOf(converted.substring(j,j+8),2),processLocation++);
                     j = j + 8;
+                    Utility.write("[CONVERT TO]: " + converted);
                 }
                 procCounter++;
                 availableMemory = availableMemory - 4;
-                System.out.println("Memleft: " + availableMemory);
+                Utility.write("Available Memory: " + availableMemory);
             }
 
             System.out.println("Size of Process: " + sizeOfMemory);
@@ -93,14 +103,17 @@ public class LongTerm
                     dataStorage[temp] = Short.valueOf(binary.substring(j-8,j), 2);
                     temp = temp + 1;
                     j = j - 8;
+                    Utility.write("[CONVERT TO]: " + binary);
                 }
                 thresh = thresh + 1;
+                Utility.write("[THRESHHOLD]: " + thresh);
 
             }
             process.setEndMemory(processLocation);
             process.setCBuffer(dataStorage);
             process.setStatus(ProcessControlVariables.STATE.ACCESSIBLE);
             controller.add(process);
+            Utility.write("[DATA LOADING TIME: ]" + System.nanoTime());
             if(Main.process.getProcessCounter() < currentLocation)
             {
                 Main.end = true;
@@ -120,6 +133,7 @@ public class LongTerm
                 Main.end = true;
             }
         }
+        Utility.write("[FULL PROCESS ENDING]" + System.nanoTime());
         return;
     }
 
@@ -148,6 +162,7 @@ public class LongTerm
             return false;
         }
     }
+
     public int getProcessControlCounter()
     {
         return Main.process.getProcessCounter();
