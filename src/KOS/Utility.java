@@ -45,6 +45,7 @@ public class Utility
         String diskData = Main.memory.getDiskInformation(location);
         diskData = diskData.replace("0x", "");
         String binary = new BigInteger(diskData, 16).toString(2);
+        //System.out.println("DiskData: " + diskData);
         if(binary.length() < 32)
         {
             int binaryMatch = 32 - binary.length();

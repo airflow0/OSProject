@@ -1,6 +1,6 @@
 package KOS;
 
-
+import java.util.ArrayList;
 public class ProcessControlVariables
 {
     //Buffers
@@ -22,6 +22,11 @@ public class ProcessControlVariables
     private int procDataSize;
     private int procPriority;
 
+    private int pageTable;
+    private int offset;
+    private ArrayList<Integer> usedFrames;
+
+
     //Timer
     public long internalTimer = 0;
     public long outerTimer = 0;
@@ -29,17 +34,22 @@ public class ProcessControlVariables
     public long cpuEnd = 0;
 
     //PCBSTATUS
-    public enum STATE { ACCESSIBLE, END}
+    public enum STATE { ACCESSIBLE, INQUEUE, END}
     public STATE status;
     //Data size
     public int memorysize;
 
     ProcessControlVariables(int id, int address, int size, int priority)
     {
+        this.usedFrames = new ArrayList<Integer>();
         this.procID = id;
         this.procAddress = address;
         this.procSize = size;
         this.procPriority = priority;
+    }
+    public void printPCB()
+    {
+        System.out.println("procID: " + procID + "; procAddress: " + procAddress + " procSize: " + procSize + " procPriority: " + procPriority);
     }
     public STATE getStatus()
     {
@@ -157,5 +167,31 @@ public class ProcessControlVariables
         this.tempBuffer = new short[tempData];
         this.OutBuffer = new short[outputData];
         ///Utility.write("Meta data. [Input Buffer: " + inputData + "], Temporary Buffer: [" + tempData + "], [Output Buffer: "+ outputData + "]");
+    }
+
+    //page
+    public void setPageTable(int location)
+    {
+        this.pageTable = location;
+    }
+    public int getPageTable()
+    {
+        return this.pageTable;
+    }
+    public ArrayList getUsedFrames()
+    {
+        return usedFrames;
+    }
+    public void addFrames(int id)
+    {
+        usedFrames.add(id);
+    }
+    public void setOffset(int off)
+    {
+        this.offset = off;
+    }
+    public int getOffset()
+    {
+        return this.offset;
     }
 }

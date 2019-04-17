@@ -37,6 +37,7 @@ public class Loader
                 if(data.contains("JOB"))
                 {
                     //Utility.write(data);
+                    System.out.println(data);
                     data = data.replace("// JOB ", "");
                     //Utility.write("[PROCESSED JOB]");
                     //Utility.write(data);
@@ -45,6 +46,7 @@ public class Loader
                 else if(data.contains("Data"))
                 {
                     //Utility.write(data);
+                    System.out.println(data);
                     data = data.replace("// Data ", "");
                     //Utility.write("[PROCESSED DATA]");
                     //Utility.write(data);
@@ -71,6 +73,7 @@ public class Loader
     {
         Main.memory.setDiskInformation(data, location);
         addressLocation++;
+        System.out.println("Loaded Data: " + data + "; Location: " + location);
     }
     public static void insertJob(String job, boolean isJob)
     {

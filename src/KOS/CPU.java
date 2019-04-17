@@ -1,16 +1,16 @@
 package KOS;
 
-import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
-public class CPU
+public class CPU implements Runnable
 {
-    public int programCounter;
+    public int programCounter, address;
     public static int count = 0;
     public final int registrySize = 16;
 
     public int procSize;
-    public int addr;
+    public int location;
+    public int procLocation;
     public long stateAddress;
     public short op, s1Registery, s2Registry, registry1, registry2, dataRegistry, bufferRegistry, instructionType;
     public int[] registry;
@@ -18,13 +18,22 @@ public class CPU
     public int inputBuffer;
     public int outputBuffer;
     public int tempBuffer;
-    public ProcessControl pcb;
+    public ProcessControlVariables pcb;
     public FileWriter writer;
-
+    public boolean status, jump;
+    public int procId, trollCounter;
     CPU()
     {
-        registry = new int[500];
-        registry[0] = 0;
+        status = false;
+
+    }
+    public synchronized void load(ProcessControlVariables pcb_)
+    {
+        status = true;
+        pcb = pcb_;
+        jump = false;
+        registry = new int[registrySize];
+        registry[1] = 0;
         try
         {
             writer = new FileWriter("CPUOUTPUT.txt", true);
@@ -33,6 +42,8 @@ public class CPU
         {
 
         }
+        run();
+
     }
     private void writeToFile(String a)
     {
@@ -47,112 +58,209 @@ public class CPU
     }
     private void execute(int id, int decodedInstructions)
     {
+
+        System.out.println("OPCODE: " + this.op);
+
         if((this.op < 26 || this.op > 0))
         {
-            if(op == 0)
+            if(this.op == 0)
             {
-                writeToFile("Read content of Input/Output buffer to Accumulator.");
+                System.out.println("Read content of Input/Output buffer to Accumulator.");
+                if(stateAddress > 0)
+                {
+                    registry[registry1] = buffer[push_Address((int)stateAddress)];
+                }
+                else
+                {
+                    registry[registry1] = (int)buffer[push_Address(registry[registry2])];
+                }
             }
-            else if(op == 1)
+            else if(this.op == 1)
             {
-                writeToFile("Read content of Input/Output buffer to Accumulator.");
+                System.out.println("Writes the content of accumulator into O/P buffer.");
+                buffer[push_Address((int)stateAddress)] = (short) registry[registry2];
 
             }
-            else if(op == 2)
+            else if(this.op == 2)
             {
-                writeToFile("Writes the content of accumulator into O/P buffer");
+                System.out.println("Stores content of a reg. into an address");
+                buffer[push_Address(registry[dataRegistry])] = (short)registry[bufferRegistry];
             }
-            else if(op == 3)
+            else if(this.op == 3)
             {
-                writeToFile("Stores content of a reg. into an address");
+                System.out.println("Transfers the content of one register into another");
+                registry[dataRegistry] = buffer[push_Address(bufferRegistry)];
+
             }
-            else if(op == 4)
+            else if(this.op == 4)
             {
-                writeToFile("Transfers the content of one register into another");
+                System.out.println("Adds content of two S-regs into D-reg");
+                int tmp = registry[s1Registery];
+                registry[s1Registery] = registry[s2Registry];
+                registry[s2Registry] = tmp;
             }
-            else if(op == 5)
+            else if(this.op == 5)
             {
-                writeToFile("Adds content of two S-regs into D-reg");
+                System.out.println("Adds content of two S-regs into D-reg");
+                //0
+                registry[dataRegistry] = (short)(registry[s1Registery] + registry[s2Registry]);
             }
-            else if(op == 6)
+            else if(this.op == 6)
             {
-                writeToFile("Subtracts content of two S-regs into D-reg");
+                System.out.println("Subtracts content of two S-regs into D-reg");
+                registry[dataRegistry] = (short)(registry[s1Registery] - registry[s2Registry]);
+                //1
             }
-            else if(op == 7)
+            else if(this.op == 7)
             {
-                writeToFile("Multiplies content of two S-regs into D-reg");
+                System.out.println("Multiplies content of two S-regs into D-reg");
+                registry[dataRegistry] = (short)(registry[s1Registery] * registry[s2Registry]);
+                //2
             }
-            else if(op == 8)
+            else if(this.op == 8)
             {
-                writeToFile("Divides content of two S-regs into D-reg");
+                if(registry[s2Registry] != 0)
+                {
+                    registry[dataRegistry] = (short)(registry[s1Registery] / registry[s2Registry]);
+                }
+                //3
             }
-            else if(op == 9)
+            else if(this.op == 9)
             {
-                writeToFile("Logical AND of two S-regs into D-reg");
+                System.out.println("Logical AND of two S-regs into D-reg");
+                registry[dataRegistry] = (short)(registry[s1Registery] & registry[s2Registry]);
             }
-            else if(op == 10)
+            else if(this.op == 10)
             {
-                writeToFile("Logical OR of two S-regs into D-reg");
+                System.out.println("Logical OR of two S-regs into D-reg");
+                registry[dataRegistry] = (short)(registry[s1Registery] | registry[s2Registry]);
             }
-            else if(op == 11)
+            else if(this.op == 11)
             {
-                writeToFile("Transfers address/data directly into a register");
+                System.out.println("Transfers address/data directly into a register");
+                registry[dataRegistry] = (int)stateAddress;
             }
-            else if(op == 12)
+            else if(this.op == 12)
             {
-                writeToFile("Adds a data value directly to the content of a register");
+                System.out.println("Adds a data value directly to the content of a register");
+                registry[dataRegistry] = registry[dataRegistry] + (int) stateAddress;
+
             }
-            else if(op == 13)
+            else if(this.op == 13)
             {
-                writeToFile("Multiplies a data value directly with the content of a register");
+                System.out.println("Multiplies a data value directly with the content of a register");
+                registry[dataRegistry] = registry[dataRegistry] * (int) stateAddress;
             }
-            else if(op == 14)
+            else if(this.op == 14)
             {
-                writeToFile("Divides a data directly to the content of a register");
+                System.out.println("Divides a data directly to the content of a register");
+                registry[dataRegistry] = registry[dataRegistry] / (int) stateAddress;
             }
-            else if(op == 15)
+            else if(this.op == 15)
             {
-                writeToFile("Loads a data/address directly to the content of a register");
+                System.out.println("Loads a data/address directly to the content of a register");
+                registry[dataRegistry] = (int)stateAddress;
             }
-            else if(op == 16)
+            else if(this.op == 16)
             {
-                writeToFile("Sets the D-reg to 1 if first S-reg is less than the B-reg; 0 otherwise");
+                System.out.println("Sets the D-reg to 1 if first S-reg is less than the B-reg; 0 otherwise");
+                if(registry[s2Registry] > registry[s1Registery])
+                {
+                    registry[dataRegistry] = 0;
+                }
+                else
+                {
+                    registry[dataRegistry] = 1;
+                }
             }
-            else if(op == 17)
+            else if(this.op == 17)
             {
-                writeToFile("Sets the D-reg to 1 if first S-reg is less than a data; 0 otherwise");
+                System.out.println("Sets the D-reg to 1 if first S-reg is less than a data; 0 otherwise");
+                if((int)stateAddress > registry[s1Registery])
+                {
+                    registry[dataRegistry] = 0;
+                }
+                else
+                {
+                    registry[dataRegistry] = 1;
+                }
             }
-            else if(op == 18)
+            else if(this.op == 18)
             {
-                writeToFile("Logical end of program");
+                System.out.println("Logical end of program");
+                ProcessControlVariables copy = Main.process.getJob(id - 1);
+                copy.setStatus(ProcessControlVariables.STATE.END);
+                status = false;
+
             }
-            else if(op == 19)
+            else if(this.op == 19)
             {
-                writeToFile("Does nothing and moves to next instruction");
+                System.out.println("Does nothing and moves to next instruction");
             }
-            else if(op == 21)
+            else if(this.op == 20)
             {
-                writeToFile("Jumps to a specified location");
+                System.out.println("Jumps to a specified location");
+                programCounter = (int)stateAddress;
+                address = Main.memory.getAddress(programCounter,pcb);
+                jump = true;
             }
-            else if(op == 22)
+            else if(this.op == 21)
             {
-                writeToFile("Branches to an address when content of B-reg = D-reg");
+                System.out.println("Branches to an address when content of B-reg = D-reg");
+                if(registry[dataRegistry] == registry[bufferRegistry])
+                {
+                    programCounter = (int) stateAddress;
+                    address = Main.memory.getAddress(programCounter,pcb);
+                    jump = true;
+                }
             }
-            else if(op == 23)
+            else if(this.op == 22)
             {
-                writeToFile("Branches to an address when content of B-reg <> D-reg");
+                System.out.println("Branches to an address when content of B-reg != D-reg");
+                if(registry[bufferRegistry] != registry[dataRegistry])
+                {
+                    programCounter = (int) stateAddress;
+                    address = Main.memory.getAddress(programCounter,pcb);
+                    jump = true;
+                }
             }
-            else if(op == 24)
+            else if(this.op == 23)
             {
-                writeToFile("Branches to an address when content of B-reg = 0");
+                System.out.println("Branches to an address when content of B-reg = 0");
+                if(registry[dataRegistry] == 0)
+                {
+                    programCounter = (int) stateAddress;
+                    address = Main.memory.getAddress(programCounter,pcb);
+                    jump = true;
+                }
             }
-            else if(op == 25)
+            else if(this.op == 24)
             {
-                writeToFile("Branches to an address when content of B-reg <> 0");
+                System.out.println("Branches to an address when content of B-reg != 0");
+                if(registry[bufferRegistry] != 0)
+                {
+                    programCounter = (int) stateAddress;
+                    address = Main.memory.getAddress(programCounter,pcb);
+                }
+
             }
-            else if(op == 26)
+            else if(this.op == 25)
             {
-                writeToFile("Branches to an address when content of B-reg > 0");
+                System.out.println("Branches to an address when content of B-reg <> 0");
+                if(registry[bufferRegistry] > 0)
+                {
+                    programCounter = (int) stateAddress;
+                    address = Main.memory.getAddress(programCounter,pcb);
+                }
+            }
+            else if(this.op == 26)
+            {
+                System.out.println("Branches to an address when content of B-reg > 0");
+                if(registry[bufferRegistry] < 0)
+                {
+                    programCounter = (int) stateAddress;
+                    address = Main.memory.getAddress(programCounter,pcb);
+                }
             }
         }
     }
@@ -160,30 +268,35 @@ public class CPU
 
     private int decode(String instruction)
     {
-        this.op = Short.parseShort(instruction.substring(2,8), 2);
+        System.out.println("Instruction: " + instruction);
         this.instructionType = Short.parseShort(instruction.substring(0,2), 2);
+        this.op = Short.parseShort(instruction.substring(2,8), 2);
         if(instructionType == 0)
         {
-            dataRegistry  = Short.parseShort(instruction.substring(16,20), 2);
             s1Registery = Short.parseShort(instruction.substring(8,12), 2);
             s2Registry = Short.parseShort(instruction.substring(12,16), 2);
+            dataRegistry  = Short.parseShort(instruction.substring(16,20), 2);
+            System.out.println("s1: " + s1Registery + "; s2: " + s2Registry + "; d_reg: " + dataRegistry);
         }
         else if(instructionType == 1)
         {
             bufferRegistry = Short.parseShort(instruction.substring(8,12), 2);
             dataRegistry = Short.parseShort(instruction.substring(12,16), 2);
             stateAddress = Long.parseLong(instruction.substring(16,32), 2);
+            System.out.println("bufferRegistry: " + bufferRegistry + "; dataRegistry: " + dataRegistry + "; stateAddress: " + stateAddress);
         }
         else if(instructionType == 2)
         {
             stateAddress = Long.parseLong(instruction.substring(16,32), 2);
+            System.out.println("Jumped!");
 
         }
         else if(instructionType == 3)
         {
-            //registry1 = Short.parseShort(instruction.substring(8,12), 2);
-            //registry2 = Short.parseShort(instruction.substring(12,16), 2);
-            //stateAddress =  Long.parseLong(instruction.substring(16,32), 2);
+            registry1 = Short.parseShort(instruction.substring(8,12), 2);
+            registry2 = Short.parseShort(instruction.substring(12,16), 2);
+            stateAddress =  Long.parseLong(instruction.substring(16,32), 2);
+            System.out.println("registry1: " + registry1 + "; registry2: " + registry2 + "; stateAddress: " + stateAddress);
             count = count+1;
         }
         else
@@ -195,20 +308,23 @@ public class CPU
     private String fetchInstructions(int programCounter)
     {
         String first, second = "";
-        first = Integer.toBinaryString(Main.memory.getRamInformation(programCounter));
-        programCounter = programCounter + 1;
-        int firstLength = first.length();
-        if( first.length() < Utility.BIT8 )
+        for(int i = 0; i < 4; i++)
         {
-            for(int backward = 0; backward < Utility.BIT8 - firstLength; backward++)
+            first = Integer.toBinaryString(Main.memory.getRamInformation(programCounter));
+            programCounter = programCounter + 1;
+            int firstLength = first.length();
+            if( first.length() < Utility.BIT8 )
             {
-                first = "0" + first;
+                for(int backward = 0; backward < Utility.BIT8 - firstLength; backward++)
+                {
+                    first = "0" + first;
+                }
+                second = second + "" + first;
             }
-            second = second + "" + first;
-        }
-        else
-        {
-            second = second +"" + first;
+            else
+            {
+                second = second +"" + first;
+            }
         }
         return second;
     }
@@ -216,27 +332,39 @@ public class CPU
     {
         return Math.abs(address - procSize*Utility.BIT4);
     }
-    public int getBufferedData(long address)
+    public synchronized void run()
     {
-        return push_Address((int)address);
-    }
-    public void cpu_Start(ProcessControlVariables pcb)
-    {
-        writeToFile("Process #: " + pcb.getProcId());
+
+        procId = pcb.getProcId();
+
+        programCounter = 0;
         inputBuffer = pcb.getIBufferSize();
         tempBuffer = pcb.getOBufferSize();
         outputBuffer = pcb.getOBufferSize();
         buffer = pcb.getCBuffer();
         procSize = pcb.getProcSize();
-        programCounter = pcb.getBeginMemory();
+        address = Main.memory.getAddress(programCounter, pcb);
 
-        writeToFile("Program Counter = " + programCounter);
-        for(int i = programCounter; i < pcb.getEndMemory(); i++)
+        while(status == true)
         {
-            String getInstructions = fetchInstructions(programCounter);
+            System.out.println("");
+            System.out.println("Troll Counter: " + trollCounter);
+            System.out.println("Executing job: " + procId);
+            String getInstructions = fetchInstructions(address);
+            System.out.println("Physical: " + address);
+            System.out.println("Program Counter = " + programCounter);
+            //System.out.println("Fetched Instruction: " + getInstructions);
             execute(pcb.getProcId(), decode(getInstructions));
-            programCounter = programCounter + 4;
-
+            if(!jump && status == true)
+            {
+                programCounter = programCounter +4;
+                address = Main.memory.getAddress(programCounter, pcb);
+            }
+            else
+            {
+                jump = false;
+            }
+            trollCounter++;
         }
     }
 }
