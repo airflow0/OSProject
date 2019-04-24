@@ -33,12 +33,12 @@ public class CPU implements Runnable {
             false};
 
     public CPU(int NUM_CPU)
-     {
-         this.multiCPU = NUM_CPU;
-         jump = false;
-         registers =  new int[16];
-         registers[1]=0;
-     }
+    {
+        this.multiCPU = NUM_CPU;
+        jump = false;
+        registers =  new int[16];
+        registers[1]=0;
+    }
 
     public String fetch(){
         String instruction = CPUBuffer[programCounter];
@@ -61,12 +61,12 @@ public class CPU implements Runnable {
         {
             CPUBuffer[i] = retrieveMemoryData(i);
         }
-        System.out.println("[Process]]" + process.getProcID());
+        //System.out.println("[Process]]" + process.getProcID());
         programCounter = this.process.getPC();
         setStatusToReady(false);
         setStatusToEnd(false);
         setDataStatus(true);
-        System.out.println("[Process Initalized]");
+        //System.out.println("[Process Initalized]");
         try
         {
             Thread.sleep(Main.delay * 3);
@@ -77,18 +77,23 @@ public class CPU implements Runnable {
         }
 
 
-        System.out.println("[System Ready]");
+        //System.out.println("[System Ready]");
     }
 
     public void run()
     {
         Main.processDataHandlers[getProcMemory()-1].setTimeRun(System.currentTimeMillis());
         setBusy(true);
-        System.out.println("[Initiating Process: ]" + getProcMemory());
+        System.out.println("------------------------ Process: " + getProcMemory() + " ------------------------");
+        System.out.println("Pages used: " + DataHandler.getPageUsed());
+
+
         while(programCounter < procCounter)
         {
+
             String instruction = fetch();
             int opCode = decode(instruction);
+            //System.out.println("OPCODE: " + opCode);
             executeInstruction(opCode);
             if(!jump) {
                 programCounter++;
@@ -110,9 +115,10 @@ public class CPU implements Runnable {
         setStatusToEnd(true);
         setStartCPU(true);
         setBusy(false);
+
         Main.processDataHandlers[getProcMemory()-1].setTimeEndRun(System.currentTimeMillis());
 
-        System.out.println("[Finished Processing]");
+        //System.out.println("[Finished Processing]");
     }
 
     private String retrieveMemoryData(int loc)
@@ -121,8 +127,11 @@ public class CPU implements Runnable {
     }
     public void stop(Process temp)
     {
-        System.out.println("[REMOVE PROCESS]");
-        System.out.println("Removing Process: " + getProcMemory() + " Program Counter:" + programCounter + " Process Counter:" + procCounter);
+        System.out.println("RUN TIME: ");
+        System.out.print(Main.processDataHandlers[getProcMemory()-1].timeEndRun-Main.processDataHandlers[getProcMemory()-1].timeRun);
+        System.out.println();
+        System.out.println("IO: " + Main.processDataHandlers[getProcMemory()-1].InputOutput);
+        //System.out.println("[REMOVE PROCESS]");
         if(programCounter < procCounter)
         {
             temp.setStatus(Process.STATE.WAIT);
@@ -149,7 +158,7 @@ public class CPU implements Runnable {
         temp.setInBuffer(inputBuffer);
         temp.setOutBuffer(outputBuffer);
 
-        System.out.println("[Removed Process]");
+        //System.out.println("[Removed Process]");
 
     }
     public int decode(String instr)
@@ -196,112 +205,114 @@ public class CPU implements Runnable {
             if(Registry2 > 0)
             {
                 registers[Registry1] = Utility.hexToDex(CPUBuffer[registers[Registry2]/tempBIT].substring(2));
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
             else
             {
                 registers[Registry1] = Utility.hexToDex( CPUBuffer[Location /tempBIT].substring(2));
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
 
             Main.processDataHandlers[getProcMemory()-1].InputOutput++;
+
         }
         else if (opcode == 1)
         {
             if(Registry2 > 0)
             {
                 registers[Registry2] =registers[Registry1];
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
             else
             {
                 CPUBuffer[Location /tempBIT] = Utility.header + Utility.DecToHex(registers[Registry1]);
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
 
             Main.processDataHandlers[getProcMemory()-1].InputOutput++;
+
         }
         else if (opcode == 2)
         {
             CPUBuffer[registers[DataRegistry]/tempBIT] = Utility.header + Utility.DecToHex( registers[BufferRegistry]);
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 3)
         {
             registers[DataRegistry]= Utility.hexToDex(CPUBuffer[(registers[BufferRegistry]/4) + Location].substring(2));
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 4)
         {
             registers[DataRegistry]=registers[BufferRegistry];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 5)
         {
             registers[DataRegistry]=registers[SRegistry1];
             registers[DataRegistry]+=registers[SRegistry2];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 6)
         {
             registers[DataRegistry]=registers[SRegistry1];
             registers[DataRegistry]=registers[DataRegistry]-registers[SRegistry2];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 7)
         {
             registers[DataRegistry]=registers[SRegistry1]*registers[SRegistry2];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 8)
         {
             registers[DataRegistry]=registers[SRegistry1]/registers[SRegistry2];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 9)
         {
             registers[DataRegistry]= registers[SRegistry1]&registers[SRegistry2];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 10)
         {
             registers[DataRegistry]=registers[SRegistry1]^registers[SRegistry2];
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 11)
         {
             registers[DataRegistry]= Location;
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 12)
         {
             registers[DataRegistry] = registers[DataRegistry] + Location;
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 13)
         {
             registers[DataRegistry] = registers[DataRegistry] * Location;
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 14)
         {
             registers[DataRegistry] = registers[DataRegistry] / Location;
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 15)
         {
             registers[DataRegistry] = (Location);
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 16)
         {
             if(registers[SRegistry1] < registers[SRegistry2]){
                 registers[DataRegistry] = 1;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
             else{
                 registers[DataRegistry] = 0;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
 
         }
@@ -309,35 +320,35 @@ public class CPU implements Runnable {
         {
             if(registers[SRegistry1] < (Location /tempBIT)){
                 registers[DataRegistry] = 1;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
             else{
                 registers[DataRegistry] = 0;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
 
         }
         else if (opcode == 18)
         {
             programCounter = procCounter;
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 19)
         {
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            System.out.println("Skipped OPCode!");
         }
         else if (opcode == 20)
         {
             programCounter = Location/tempBIT;
             jump = true;
-            System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+            //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
         }
         else if (opcode == 21)
         {
             if(registers[BufferRegistry] == registers[DataRegistry]){
                 programCounter = Location/tempBIT;
                 jump = true;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
         }
         else if (opcode == 22)
@@ -346,7 +357,7 @@ public class CPU implements Runnable {
             {
                 programCounter = Location/tempBIT;
                 jump = true;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
 
             }
             else{
@@ -358,7 +369,7 @@ public class CPU implements Runnable {
             if(registers[BufferRegistry] == 0){
                 programCounter = Location/tempBIT;
                 jump = true;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
 
         }
@@ -367,7 +378,7 @@ public class CPU implements Runnable {
             if(registers[BufferRegistry] != 0){
                 programCounter = Location/tempBIT;
                 jump = true;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
         }
         else if (opcode == 25)
@@ -376,7 +387,7 @@ public class CPU implements Runnable {
 
                 programCounter = Location/tempBIT;
                 jump = true;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
 
         }
@@ -386,7 +397,7 @@ public class CPU implements Runnable {
                 //branch
                 programCounter = Location / tempBIT;
                 jump = true;
-                System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
+                //System.out.println("Process: " + getProcMemory() + " - CPU: "+ multiCPU + " - OPCODE: " + opcode);
             }
         }
         else

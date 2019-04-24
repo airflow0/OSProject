@@ -6,10 +6,6 @@ public final class Disk
     {
         diskMemory = new String[Utility.DISKMEM];
     }
-    public static String getDiskData(int loc)
-    {
-        return diskMemory[loc];
-    }
     public static void setDiskData(String input, int loc)
     {
         diskMemory[loc] = input;}

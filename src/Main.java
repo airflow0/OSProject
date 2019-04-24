@@ -86,7 +86,7 @@ public class Main
                 }
             }
             execute.shutdown();
-            System.out.println(timeRunning());
+            System.out.println("Final Program Time!: " + timeRunning());
         }
         catch (Exception ex)
         {
@@ -123,7 +123,6 @@ public class Main
             int procLocation = Main.CPU[i].getProcMemory();
             try {
                 if (Main.CPU[i].getReadyStatus() && Main.CPU[i].cpuDONE()) {
-                    System.out.println("Removing Process: " + procLocation + " ON CPU: " + i);
                     Main.CPU[i].stop(ProcessHandler.getProcess(procLocation));
                     Memory.sync(ProcessHandler.getProcess(procLocation));
                     RandomMemory.removeFromProcess(ProcessHandler.getProcess(procLocation));
