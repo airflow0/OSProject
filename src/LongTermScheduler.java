@@ -37,7 +37,6 @@ public class LongTermScheduler
         ArrayList<Integer> filledPages = RandomMemory.fill(sizeOfPage);
         if (filledPages.size() != 0)
         {
-            System.out.println(ProcID);
             ProcessHandler.getProcess(ProcID).setProcessed(true);
             ProcessHandler.getProcess(ProcID).setProcRamAddress(tempPageNumber * Utility.PAGESIZE);
             ProcessHandler.getProcess(ProcID).setStatus(Process.STATE.READY);

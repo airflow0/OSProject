@@ -37,6 +37,7 @@ public class Loader
             {
                 if(data.contains("JOB"))
                 {
+
                     dataIndex = data.split("\\s+");
                     location = Integer.parseInt(dataIndex[2], 16);
                     insertJob(location, address,  Integer.parseInt(dataIndex[3],16),Integer.parseInt(dataIndex[4], 16));
@@ -44,9 +45,6 @@ public class Loader
                 else if (data.contains("Data"))
                 {
                     dataIndex = data.split("\\s+");
-
-                    if(ProcessHandler.getAlgorithm() != ProcessHandler.ALGORITHM.FIFO)
-                        ProcessHandler.applyAlgorithm(ProcessHandler.ALGORITHM.FIFO);
                     Process process = ProcessHandler.getProcess(location);
                     addData(process, address, dataIndex);
                 }

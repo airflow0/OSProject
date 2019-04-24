@@ -29,6 +29,5 @@ public class shortTerm
 
         ProcessHandler.applyAlgorithm(algorithm, processList);
     }
-
 }
 

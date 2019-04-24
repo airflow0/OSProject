@@ -6,10 +6,14 @@ public final class Disk
     {
         diskMemory = new String[Utility.DISKMEM];
     }
+    public void initialize()
+    {
+        diskMemory = new String[Utility.DISKMEM];
+    }
     public static void setDiskData(String input, int loc)
     {
-        diskMemory[loc] = input;}
-
+        diskMemory[loc] = input;
+    }
     public static String[] getResizedData(int loc, int mem)
     {
         String[] newData = new String[mem];

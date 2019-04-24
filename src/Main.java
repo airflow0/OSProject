@@ -17,7 +17,7 @@ public class Main
     public static long delay = 0;
     public static int NUM_CPUS=4;
     public static boolean END = false;
-    public static Algorithm algorithm = Algorithm.PRIORITY;
+    public static Algorithm algorithm = Algorithm.FIFO;
 
     public static void main(String [] args) {
         try
@@ -28,6 +28,7 @@ public class Main
             Loader loader = new Loader();
             LongTermScheduler = new LongTermScheduler();
             ShortTermScheduler = new shortTerm();
+
             CPU = new CPU[NUM_CPUS];
             initCPU();
             jobsRan = new ArrayList<>();
@@ -57,8 +58,10 @@ public class Main
                         Main.processDataHandlers[pcb.getProcID()-1].setProcID(pcb.getProcID());
                         Main.processDataHandlers[pcb.getProcID()-1].setTimeWait(System.currentTimeMillis());
                         Main.processDataHandlers[pcb.getProcID()-1].setCPU_NUM(i+1);
-                        Main.CPU[i].load(pcb);
 
+                        Main.CPU[i].load(pcb);
+                        System.out.println("WAITING TIME: ");
+                        System.out.println(Main.processDataHandlers[pcb.getProcID()-1].timeWait);
                     }
                 }
                 if (Main.ShortTermScheduler.processList.size() == 0 && Main.cpuREADY()) {
