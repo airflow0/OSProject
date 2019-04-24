@@ -33,7 +33,7 @@ public class Process
         this.procAddress = procAddress;
         this.procDataSize = procDataSize;
         Reg = new int[16];
-        Arrays.fill(Reg,0);
+        generateArray(Reg);
         status = STATE.NEW;
         processed = false;
     }
@@ -58,9 +58,6 @@ public class Process
     public int getProcID() {
         return procID;
     }
-
-
-
     public int getPC()
     {
         return pc;
@@ -121,8 +118,5 @@ public class Process
     public void setFilledPages(ArrayList<Integer> filledPages) {
         this.filledPages = filledPages;
     }
+    public void generateArray(int[] temp) { Arrays.fill(Reg, 0);}
 }
-
-
-
-
