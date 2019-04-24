@@ -18,29 +18,29 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Handler/LongTerm.java">
+        <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControlVariables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="143" column="39" lean-forward="true" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
+            <state relative-caret-position="374">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5674#5675#0" expanded="true" />
-                <element signature="e#5729#5730#0" expanded="true" />
+                <element signature="e#1367#1368#0" expanded="true" />
+                <element signature="e#1396#1397#0" expanded="true" />
+                <element signature="e#3273#3274#0" expanded="true" />
+                <element signature="e#3311#3312#0" expanded="true" />
+                <element signature="e#4281#4282#0" expanded="true" />
+                <element signature="e#4315#4316#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControlVariables.java">
+        <entry file="file://$PROJECT_DIR$/src/Handler/LongTerm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="51" column="112" selection-start-line="51" selection-start-column="112" selection-end-line="51" selection-end-column="112" />
+            <state relative-caret-position="1292">
+              <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
               <folding>
-                <element signature="e#1320#1321#0" expanded="true" />
-                <element signature="e#1354#1355#0" expanded="true" />
-                <element signature="e#3870#3871#0" expanded="true" />
-                <element signature="e#3911#3912#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,30 +49,45 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/KOS/CPU.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="360" column="57" lean-forward="true" selection-start-line="360" selection-start-column="57" selection-end-line="360" selection-end-column="57" />
+            <state relative-caret-position="187">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12183#12184#0" expanded="true" />
+                <element signature="e#14241#14242#0" expanded="true" />
+                <element signature="e#14290#14291#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
+        <entry file="file://$PROJECT_DIR$/CPU_log.txt">
+          <provider selected="true" editor-type-id="LargeFileEditor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KOS/Utility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="432" selection-start-line="432" selection-end-line="432" />
+            <state relative-caret-position="340">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Runnable.java">
+        <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Disk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+            <state relative-caret-position="204">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#358#359#0" expanded="true" />
+                <element signature="e#405#406#0" expanded="true" />
+                <element signature="e#449#450#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,39 +95,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
+            <state relative-caret-position="-107">
+              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
               <folding>
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#538#539#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#616#617#0" expanded="true" />
-                <element signature="e#975#976#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1484#1485#0" expanded="true" />
-                <element signature="e#1525#1526#0" expanded="true" />
-                <element signature="e#1567#1568#0" expanded="true" />
-                <element signature="e#1612#1613#0" expanded="true" />
-                <element signature="e#1693#1694#0" expanded="true" />
-                <element signature="e#1743#1744#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Memory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3232#3233#0" expanded="true" />
-                <element signature="e#3285#3286#0" expanded="true" />
-                <element signature="e#3500#3501#0" expanded="true" />
-                <element signature="e#3552#3553#0" expanded="true" />
-                <element signature="e#3820#3821#0" expanded="true" />
-                <element signature="e#3879#3880#0" expanded="true" />
+                <element signature="e#1760#1761#0" expanded="true" />
+                <element signature="e#1801#1802#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Handler/ShortTerm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="306">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -130,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KOS/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="58" column="65" lean-forward="true" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
+            <state relative-caret-position="221">
+              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,15 +127,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/KOS/Page.java">
+        <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Ram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            <state relative-caret-position="119">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="37" />
               <folding>
-                <element signature="e#362#363#0" expanded="true" />
-                <element signature="e#394#395#0" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-                <element signature="e#457#458#0" expanded="true" />
+                <element signature="e#187#188#0" expanded="true" />
+                <element signature="e#229#230#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#343#344#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -165,37 +152,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>process: 10</find>
-      <find>getProcessCounter</find>
-      <find>Inserted</find>
-      <find>while(0</find>
+      <find>2---</find>
+      <find>Program Counter = 60</find>
+      <find>Test</find>
+      <find>fet</find>
+      <find>2-----</find>
+      <find>usedFram</find>
+      <find>disklength</find>
+      <find>status</find>
+      <find>Proc Be</find>
+      <find>System.out.println</find>
+      <find>Jump</find>
+      <find>Prog</find>
+      <find>this.op</find>
+      <find>address</find>
+      <find>synch</find>
+      <find>s</find>
+      <find>System.out.println(&quot;PCB: &quot; + pcb.toString());</find>
+      <find>FRAME POOL:</find>
       <find>get</find>
-      <find>convert</find>
-      <find>location</find>
-      <find>section</find>
-      <find>progr</find>
-      <find>676</find>
-      <find>stat</find>
-      <find>physical</find>
-      <find>Frame Pool.</find>
-      <find>Fr</find>
-      <find>proc begin:</find>
-      <find>Disk</find>
-      <find>print</find>
-      <find>process:</find>
-      <find>program Counter</find>
-      <find>program</find>
-      <find>Read content of Input/Output buffer to Accumulator.</find>
-      <find>page Val</find>
-      <find>OPCODE: 18</find>
-      <find>read cont</find>
-      <find>program Counter =</find>
-      <find>instruction:</find>
-      <find>state address</find>
-      <find>stateaddress</find>
-      <find>System Tracker: 0</find>
-      <find>ProcID</find>
+      <find>OPCODE</find>
+      <find>--------- 6 ---------</find>
+      <find>--------- 79 ---------</find>
+      <find>out.append</find>
+      <find>Frame removed at Location:</find>
+      <find>16 ---</find>
+      <find>IT CAME</find>
+      <find>ProcessControllVariables</find>
+      <find>frame</find>
+      <find>getMemory</find>
+      <find>procCounter</find>
     </findStrings>
+    <replaceStrings>
+      <replace>//System.out.println</replace>
+      <replace>op</replace>
+      <replace>jump</replace>
+      <replace>ProcessControlVariables</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -203,35 +196,34 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/KOS/Memory/Ram.java" />
         <option value="$PROJECT_DIR$/src/KOS/Registry.java" />
         <option value="$PROJECT_DIR$/src/Utility.java" />
         <option value="$PROJECT_DIR$/src/KOS/OSUtil.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/KOS/main.java" />
-        <option value="$PROJECT_DIR$/Data.txt" />
-        <option value="$PROJECT_DIR$/src/KOS/Memory/Disk.java" />
         <option value="$PROJECT_DIR$/src/KOS/Writer.java" />
         <option value="$PROJECT_DIR$/RAMDUMP.txt" />
-        <option value="$PROJECT_DIR$/src/KOS/Loader.java" />
         <option value="$PROJECT_DIR$/src/Page.java" />
         <option value="$PROJECT_DIR$/src/KOS/Utility.java" />
+        <option value="$PROJECT_DIR$/src/KOS/Page.java" />
+        <option value="$PROJECT_DIR$/src/KOS/Memory/Ram.java" />
+        <option value="$PROJECT_DIR$/src/KOS/ProcessControlVariables.java" />
+        <option value="$PROJECT_DIR$/src/KOS/Loader.java" />
+        <option value="$PROJECT_DIR$/Data.txt" />
         <option value="$PROJECT_DIR$/src/KOS/Memory/Frame.java" />
         <option value="$PROJECT_DIR$/src/Handler/ShortTerm.java" />
-        <option value="$PROJECT_DIR$/src/KOS/Page.java" />
-        <option value="$PROJECT_DIR$/src/KOS/ProcessControl.java" />
-        <option value="$PROJECT_DIR$/src/Handler/LongTerm.java" />
-        <option value="$PROJECT_DIR$/src/KOS/ProcessControlVariables.java" />
         <option value="$PROJECT_DIR$/src/KOS/Memory/Memory.java" />
-        <option value="$PROJECT_DIR$/src/KOS/Main.java" />
+        <option value="$PROJECT_DIR$/src/KOS/ProcessControl.java" />
         <option value="$PROJECT_DIR$/src/KOS/CPU.java" />
+        <option value="$PROJECT_DIR$/src/KOS/Main.java" />
+        <option value="$PROJECT_DIR$/src/KOS/Memory/Disk.java" />
+        <option value="$PROJECT_DIR$/src/Handler/LongTerm.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1285" />
-    <option name="y" value="6" />
-    <option name="width" value="1294" />
+    <option name="x" value="1325" />
+    <option name="width" value="1242" />
     <option name="height" value="1407" />
   </component>
   <component name="ProjectView">
@@ -239,6 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -275,14 +268,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555538014538" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555837145408" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../source-archive/javaosemulator" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -312,13 +304,27 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application">
+    <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="KOS.Main" />
       <module name="OSProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="KOS.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS,SHOW_NON_PUBLIC" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -349,11 +355,20 @@
       <workItem from="1555091649990" duration="2075000" />
       <workItem from="1555309221883" duration="41263000" />
       <workItem from="1555500445058" duration="20060000" />
+      <workItem from="1555538667598" duration="32354000" />
+      <workItem from="1555571995900" duration="3135000" />
+      <workItem from="1555575163190" duration="18818000" />
+      <workItem from="1555822060716" duration="1985000" />
+      <workItem from="1555828149253" duration="3008000" />
+      <workItem from="1555833074331" duration="1153000" />
+      <workItem from="1555917104108" duration="1202000" />
+      <workItem from="1555961662839" duration="3082000" />
+      <workItem from="1555984987202" duration="5998000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193269000" />
+    <option name="totallyTimeSpent" value="264004000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -365,11 +380,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1285" y="6" width="1294" height="1407" extended-state="0" />
+    <frame x="1325" y="0" width="1242" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976452" visible="true" weight="0.17504051" />
-      <window_info id="Structure" order="1" sideWeight="0.5023548" side_tool="true" visible="true" weight="0.17504051" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48979592" visible="true" weight="0.1607445" />
+      <window_info id="Structure" order="1" sideWeight="0.5102041" side_tool="true" visible="true" weight="0.1607445" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -377,19 +392,18 @@
       <window_info id="Favorites" order="6" sideWeight="0.50124377" side_tool="true" weight="0.11049285" />
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49920508" weight="0.33045527" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48410174" weight="0.25588697" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49920508" visible="true" weight="0.33045527" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48410174" weight="0.34615386" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49920508" weight="0.3987441" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32967034" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32967034" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5158982" side_tool="true" weight="0.33671084" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49324325" weight="0.2943485" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49324325" weight="0.29383886" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49960256" weight="0.32967034" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3298217" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24959481" />
@@ -399,22 +413,20 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3298217" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="LongTerm.controller" language="JAVA" custom="Handler.LongTerm" />
-        <watch expression="LongTerm.controller" language="JAVA" custom="Handler.LongTerm" />
-        <watch expression="LongTerm.controller" language="JAVA" custom="Handler.LongTerm" />
-      </configuration>
-    </watches-manager>
-  </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>programCounter</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>KOS.CPU</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>LongTerm.controller</expression-string>
         <language-id>JAVA</language-id>
@@ -451,13 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Short.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -465,17 +470,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9282">
-          <caret line="579" selection-start-line="579" selection-end-line="579" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/KOS/Writer.java" />
-    <entry file="file://$PROJECT_DIR$/OSProject.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32147">
@@ -483,77 +478,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LOADERDUMP.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/LOADERDUMP.txt" />
     <entry file="file://$PROJECT_DIR$/CPUOUTPUT.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RAM DUMP">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RAMDUMP.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="11487" column="36" selection-start-line="11487" selection-start-column="36" selection-end-line="11487" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Disk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="5" />
-          <folding>
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RAM DUMP" />
+    <entry file="file://$PROJECT_DIR$/RAMDUMP.txt" />
     <entry file="file://$PROJECT_DIR$/src/Page.java" />
-    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Ram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34986">
-          <caret line="2058" column="10" selection-end-line="2118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Frame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/Handler.LongTerm">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -564,103 +495,11 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="51.5" y="14.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="52.0" y="15.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Handler/LongTerm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="143" column="39" lean-forward="true" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5674#5675#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
-          <folding>
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#975#976#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
-            <element signature="e#1525#1526#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1612#1613#0" expanded="true" />
-            <element signature="e#1693#1694#0" expanded="true" />
-            <element signature="e#1743#1744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="e#362#363#0" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControlVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="51" column="112" selection-start-line="51" selection-start-column="112" selection-end-line="51" selection-end-column="112" />
-          <folding>
-            <element signature="e#1320#1321#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
-            <element signature="e#3870#3871#0" expanded="true" />
-            <element signature="e#3911#3912#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Memory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3232#3233#0" expanded="true" />
-            <element signature="e#3285#3286#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3552#3553#0" expanded="true" />
-            <element signature="e#3820#3821#0" expanded="true" />
-            <element signature="e#3879#3880#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Handler/ShortTerm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
@@ -671,30 +510,197 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/io/FileInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="432" selection-start-line="432" selection-end-line="432" />
+        <state relative-caret-position="307">
+          <caret line="194" selection-start-line="194" selection-end-line="194" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="58" column="65" lean-forward="true" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
+        <state relative-caret-position="629">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="614" selection-start-line="614" selection-end-line="614" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="747" selection-start-line="747" selection-end-line="747" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OSProject.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="2118" selection-start-line="2118" selection-end-line="2118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="432" selection-start-line="432" selection-end-line="432" />
+          <folding>
+            <element signature="e#10361#10362#0" expanded="true" />
+            <element signature="e#10388#10389#0" expanded="true" />
+            <element signature="e#10570#10571#0" expanded="true" />
+            <element signature="e#10602#10603#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="105" column="35" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KOS/CPU.java">
+    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Memory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="360" column="57" lean-forward="true" selection-start-line="360" selection-start-column="57" selection-end-line="360" selection-end-column="57" />
+        <state relative-caret-position="1003">
+          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12183#12184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPU_log.txt">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Disk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Memory/Ram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#229#230#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handler/LongTerm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControlVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#1367#1368#0" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+            <element signature="e#3273#3274#0" expanded="true" />
+            <element signature="e#3311#3312#0" expanded="true" />
+            <element signature="e#4281#4282#0" expanded="true" />
+            <element signature="e#4315#4316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/ProcessControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+          <folding>
+            <element signature="e#1760#1761#0" expanded="true" />
+            <element signature="e#1801#1802#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handler/ShortTerm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KOS/CPU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#14241#14242#0" expanded="true" />
+            <element signature="e#14290#14291#0" expanded="true" />
           </folding>
         </state>
       </provider>
